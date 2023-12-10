@@ -1,8 +1,15 @@
+<?php
+session_start();
+require_once("../proyecto/app/config.php");
+if (isset($_SESSION['session_email'])) {
+    // echo "Si existe" . $_SESSION["session_email"];
+    $email_session = $_SESSION['session_email'];
+} else {
+    echo "No existe ";
+    header("location: $baseURL/login");
+}
+?>
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
@@ -11,15 +18,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>AdminLTE 3 | Starter</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <!-- <link rel="stylesheet" href="public/template/plugins/fontawesome-free/css/all.min.css"> -->
     <link rel="stylesheet" href="./public/templeates/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="./public/templeates/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <!-- Libreria de sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
+    <script>
+        Swal.fire({
+            position:"top-end",
+            title: "Bienvenido al sistema <?php echo $email_session;?>",
+            showConfirmButton:false,
+            icon: "success"
+        });
+    </script>
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -47,7 +65,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="navbar-search-block">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                                    aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-navbar" type="submit">
                                         <i class="fas fa-search"></i>
@@ -71,7 +90,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user1-128x128.jpg"
+                                    alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -87,7 +107,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user8-128x128.jpg"
+                                    alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -103,11 +124,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user3-128x128.jpg"
+                                    alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-warning"><i
+                                                class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">The subject goes here</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -164,7 +187,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
 
@@ -173,7 +197,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user2-160x160.jpg"
+                            class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Alexander Pierce</a>
@@ -183,7 +208,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- SidebarSearch Form -->
                 <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                            aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-sidebar">
                                 <i class="fas fa-search fa-fw"></i>
@@ -194,7 +220,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
@@ -255,7 +282,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-
+            <a href="<?php echo $baseURL; ?>/app/controllers/login/cerrar_sesion.php" class="btn btn-danger">Cerrar
+                sesión</a>
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
@@ -266,7 +294,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <h5 class="card-title">Card title</h5>
 
                                     <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's
+                                        Some quick example text to build on the card title and make up the bulk of the
+                                        card's
                                         content.
                                     </p>
 
@@ -280,7 +309,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <h5 class="card-title">Card title</h5>
 
                                     <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's
+                                        Some quick example text to build on the card title and make up the bulk of the
+                                        card's
                                         content.
                                     </p>
                                     <a href="#" class="card-link">Card link</a>
@@ -297,7 +327,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card-body">
                                     <h6 class="card-title">Special title treatment</h6>
 
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional
+                                        content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -309,7 +340,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card-body">
                                     <h6 class="card-title">Special title treatment</h6>
 
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional
+                                        content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -340,7 +372,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Anything you want
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
         </footer>
     </div>
     <!-- ./wrapper -->
