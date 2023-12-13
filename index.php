@@ -1,13 +1,13 @@
 <?php
-session_start();
-require_once("../proyecto/app/config.php");
-if (isset($_SESSION['session_email'])) {
-    // echo "Si existe" . $_SESSION["session_email"];
-    $email_session = $_SESSION['session_email'];
-} else {
-    echo "No existe ";
-    header("location: $baseURL/login");
-}
+// session_start();
+// require_once("../proyecto/app/config.php");
+// if (isset($_SESSION['session_email'])) {
+//     // echo "Si existe" . $_SESSION["session_email"];
+//     $email_session = $_SESSION['session_email'];
+// } else {
+//     echo "No existe ";
+//     header("location: $baseURL/login");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +18,7 @@ if (isset($_SESSION['session_email'])) {
     <title>AdminLTE 3 | Starter</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <!-- <link rel="stylesheet" href="public/template/plugins/fontawesome-free/css/all.min.css"> -->
     <link rel="stylesheet" href="./public/templeates/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
@@ -30,14 +29,14 @@ if (isset($_SESSION['session_email'])) {
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <script>
+    <!-- <script>
         Swal.fire({
-            position:"top-end",
-            title: "Bienvenido al sistema <?php echo $email_session;?>",
-            showConfirmButton:false,
+            position: "top-end",
+            title: "Bienvenido al sistema <?php echo $email_session; ?>",
+            showConfirmButton: false,
             icon: "success"
         });
-    </script>
+    </script> -->
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -65,8 +64,7 @@ if (isset($_SESSION['session_email'])) {
                     <div class="navbar-search-block">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-navbar" type="submit">
                                         <i class="fas fa-search"></i>
@@ -90,8 +88,7 @@ if (isset($_SESSION['session_email'])) {
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user1-128x128.jpg"
-                                    alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -107,8 +104,7 @@ if (isset($_SESSION['session_email'])) {
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user8-128x128.jpg"
-                                    alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -124,13 +120,11 @@ if (isset($_SESSION['session_email'])) {
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user3-128x128.jpg"
-                                    alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i
-                                                class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">The subject goes here</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -187,8 +181,7 @@ if (isset($_SESSION['session_email'])) {
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="./public/templeates/AdminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
 
@@ -197,8 +190,7 @@ if (isset($_SESSION['session_email'])) {
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user2-160x160.jpg"
-                            class="img-circle elevation-2" alt="User Image">
+                        <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Alexander Pierce</a>
@@ -208,8 +200,7 @@ if (isset($_SESSION['session_email'])) {
                 <!-- SidebarSearch Form -->
                 <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-sidebar">
                                 <i class="fas fa-search fa-fw"></i>
@@ -220,8 +211,7 @@ if (isset($_SESSION['session_email'])) {
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
