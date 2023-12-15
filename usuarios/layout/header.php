@@ -1,22 +1,3 @@
-<?php
-session_start();
-require_once("../app/config.php");
-$base_de_datos = DataBase::Conectar();
-if (isset($_SESSION['session_email'])) {
-    $email_session = $_SESSION['session_email'];
-    $consulta = "SELECT * FROM tb_usuarios WHERE email='$email_session'";
-    $query = $base_de_datos->prepare($consulta);
-    $query->execute();
-    $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($usuarios as $usuario) {
-        $nombres_sesion = $usuario['nombres'];
-    }
-} else {
-    echo "No existe ";
-    header("location: $baseURL/login");
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,9 +10,9 @@ if (isset($_SESSION['session_email'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <!-- <link rel="stylesheet" href="public/template/plugins/fontawesome-free/css/all.min.css"> -->
-    <link rel="stylesheet" href="../public/templeates/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?php echo $baseURL; ?>/public/templeates/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../public/templeates/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?php echo $baseURL; ?>/public/templeates/AdminLTE-3.2.0/dist/css/adminlte.min.css">
     <!-- Libreria de sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -75,7 +56,7 @@ if (isset($_SESSION['session_email'])) {
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="<?php echo $baseURL; ?>" class="brand-link">
-                <img src="../public/images/antena.svg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?php echo $baseURL; ?>/public/images/antena.svg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">VEMAX</span>
             </a>
 
@@ -84,7 +65,7 @@ if (isset($_SESSION['session_email'])) {
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../public/templeates/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="./public/templeates/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?php echo $nombres_sesion; ?></a>
@@ -133,55 +114,3 @@ if (isset($_SESSION['session_email'])) {
             </div>
             <!-- /.sidebar -->
         </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-12">
-                            <h1 class="m-0">Listado de usuarios</h1>
-                        </div><!-- /.col -->
-
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-
-            <!-- Main content -->
-            <div class="content">
-                <div class="container-fluid">
-                    <h1>444</h1>
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-
-
-        <!-- Main Footer -->
-        <footer class="main-footer">
-            <!-- To the right -->
-            <div class="float-right d-none d-sm-inline">
-                Anything you want
-            </div>
-            <!-- Default to the left -->
-            <strong>Copyright &copy; 2023 <a href="https://adminlte.io">VEMAX</a>.</strong> All rights
-            reserved.
-        </footer>
-    </div>
-    <!-- ./wrapper -->
-
-    <!-- REQUIRED SCRIPTS -->
-
-    <!-- jQuery -->
-    <!-- <script src="plugins/jquery/jquery.min.js"></script> -->
-    <script src="../public/templeates/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../public/templeates/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../public/templeates/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
-</body>
-
-</html>
