@@ -8,11 +8,12 @@ $email = $_POST["email"];
 $password_user = $_POST["password_user"];
 
 $contador = 0;
-$sql = "SELECT * FROM tb_usuarios WHERE email=:email AND password_user=:password_user";
+$sql = "SELECT * FROM tb_usuarios WHERE email=:email AND CONVERT(nvarchar(max), password_user) = :password_user";
 $query = $base_de_datos->prepare($sql);
 $query->bindParam(':email', $email, PDO::PARAM_STR);
 $query->bindParam(':password_user', $password_user, PDO::PARAM_STR);
 $query->execute();
+
 
 $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
 
