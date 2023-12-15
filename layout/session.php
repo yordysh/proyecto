@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once("../proyecto/app/config.php");
-$base_de_datos = DataBase::Conectar();
+
 if (isset($_SESSION['session_email'])) {
     $email_session = $_SESSION['session_email'];
     $consulta = "SELECT * FROM tb_usuarios WHERE email='$email_session'";

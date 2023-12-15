@@ -1,5 +1,8 @@
 <?php
-require_once "/layout/header.php";
+require_once("../proyecto/app/config.php");
+$base_de_datos = DataBase::Conectar();
+require_once "./layout/session.php";
+require_once "./layout/header.php";
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -27,5 +30,5 @@ require_once "/layout/header.php";
 </div>
 <!-- /.content-wrapper -->
 <?php
-require_once "$baseURL/layout/footer.php";
+require_once "./layout/footer.php";
 ?>
